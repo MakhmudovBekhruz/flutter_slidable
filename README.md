@@ -60,6 +60,9 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 ```
 
 ## Getting started
+<video width="320" height="240" controls>
+  <source src="/videos/IMG_0897.MP4" type="video/mp4">
+</video>
 
 Example:
 
