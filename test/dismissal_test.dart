@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:another_flutter_slidable/src/controller.dart';
 import 'package:another_flutter_slidable/src/dismissal.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'common.dart';

@@ -1,7 +1,7 @@
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
 import 'package:another_flutter_slidable/src/controller.dart';
 import 'package:another_flutter_slidable/src/notifications.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
 
 /// A widget that forces the [Slidable] widgets below it to close when another
 /// [Slidable] widget with the same [groupTag] opens.
@@ -353,7 +353,7 @@ class _SlidableAutoCloseBarrierNotificationSenderState
   SlidableGroupNotificationDispatcher? dispatcher;
 
   void _handleStatusChanged(AnimationStatus status) {
-    //TODO(romain): There is a bug if more than one try to open at the same time.
+
     final willBarrierBeEnabled = status != AnimationStatus.dismissed;
     final barrierEnabled = dispatcher != null;
     if (willBarrierBeEnabled != barrierEnabled) {

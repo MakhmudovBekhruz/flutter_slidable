@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'package:another_flutter_slidable/src/auto_close_behavior.dart';
 import 'package:another_flutter_slidable/src/notifications_old.dart';
 import 'package:flutter/cupertino.dart';

@@ -68,7 +68,6 @@ class _ListItemState extends State<ListItem> {
         startActionPane: ActionPane(
           closeThreshold: 0.5,
           openThreshold: 0.6,
-          extentRatio: 0.5,
           motion: const BehindMotion(),
           children: [RememberedArea(colorNotifier: colorNotifier)],
         ),
@@ -193,8 +192,8 @@ class Item extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(child: Text(title, style: textTheme.bodyText1)),
-          Expanded(child: Text(subtitle, style: textTheme.bodyText2)),
+          Expanded(child: Text(title, style: textTheme.bodyLarge)),
+          Expanded(child: Text(subtitle, style: textTheme.bodyMedium)),
         ],
       ),
     );

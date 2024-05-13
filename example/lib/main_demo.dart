@@ -266,9 +266,7 @@ class SlideAction extends StatelessWidget {
       flex: flex,
       backgroundColor: color,
       foregroundColor: Colors.white,
-      onPressed: (_) {
-        print(icon);
-      },
+      onPressed: (_) {},
       icon: icon,
       label: 'hello',
     );
@@ -290,9 +288,7 @@ class Tile extends StatelessWidget {
     final direction = AppState.of(context)!.direction;
     return ActionTypeListener(
       child: GestureDetector(
-        onTap: () {
-          print('$text');
-        },
+        onTap: () {},
         onLongPress: () => Slidable.of(context)!.openEndActionPane(),
         child: Container(
           color: color,

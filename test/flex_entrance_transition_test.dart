@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:another_flutter_slidable/src/flex_entrance_transition.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

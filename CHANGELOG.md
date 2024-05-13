@@ -1,8 +1,5 @@
-## 3.1.0
-
-### Added
-* A way to provide a controller to the Slidable.
-  
+## 1.1.0
+Modified to work inside the tabbar view
 ## 3.0.1
 
 ## Changed

@@ -1,6 +1,8 @@
-import 'package:flutter/widgets.dart';
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'package:another_flutter_slidable/src/controller.dart';
 import 'package:another_flutter_slidable/src/notifications_old.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

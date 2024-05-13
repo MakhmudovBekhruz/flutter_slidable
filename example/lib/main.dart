@@ -24,16 +24,16 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           length: 2,
           child: Scaffold(
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(140.0),
+              preferredSize: const Size.fromHeight(140),
               child: AppBar(
                 automaticallyImplyLeading: false,
                 // foregroundColor: AppColors.transparent,
                 // shadowColor: AppColors.transparent,
                 // backgroundColor: AppColors.transparent,
                 toolbarHeight: 100,
-                title: Text('Another flutter slidable'),
+                title: const Text('Another flutter slidable'),
                 bottom: PreferredSize(
-                  preferredSize: const Size.fromHeight(30.0),
+                  preferredSize: const Size.fromHeight(30),
                   child: Stack(
                     children: [
                       Positioned(
@@ -54,7 +54,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                         },
                         unselectedLabelColor: Colors.grey,
                         indicatorSize: TabBarIndicatorSize.label,
-                        indicatorWeight: 2,
                         tabs: const <Widget>[
                           Tab(
                             icon: Row(
@@ -159,8 +158,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                       // The child of the Slidable is what the user sees when the
                       // component is not dragged.
                       child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black)),
+                          decoration: BoxDecoration(border: Border.all()),
                           child: const ListTile(title: Text('Slide me'))),
                     ),
                     Slidable(
@@ -329,9 +327,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                             label: 'Archive',
                           ),
                           SlidableAction(
-                            onPressed: (c) {
-                              print('object.onPressed');
-                            },
+                            onPressed: (c) {},
                             backgroundColor: const Color(0xFF0392CF),
                             foregroundColor: Colors.white,
                             icon: Icons.save,
