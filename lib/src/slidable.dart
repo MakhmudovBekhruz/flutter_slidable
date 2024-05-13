@@ -1,7 +1,8 @@
+import 'package:another_flutter_slidable/src/auto_close_behavior.dart';
+import 'package:another_flutter_slidable/src/notifications_old.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_slidable/src/auto_close_behavior.dart';
-import 'package:flutter_slidable/src/notifications_old.dart';
 
 import 'action_pane_configuration.dart';
 import 'controller.dart';
@@ -29,7 +30,23 @@ class Slidable extends StatefulWidget {
     this.dragStartBehavior = DragStartBehavior.down,
     this.useTextDirection = true,
     required this.child,
+    this.endGestureWidth = 10,
+    this.endGestureHeight = 50,
+    this.onDragStart,
+    this.endPadding
   }) : super(key: key);
+
+  /// The width of the area that receives the open menu button
+  final double? endPadding;
+
+  /// Callback when user start open an item
+  final VoidCallback? onDragStart;
+
+  /// The width of the area that receives the open menu button
+  final double endGestureWidth;
+
+  /// The height of the area that receive open menu buttons
+  final double endGestureHeight;
 
   /// The Slidable widget controller.
   final SlidableController? controller;
@@ -270,10 +287,14 @@ class _SlidableState extends State<Slidable>
     );
 
     return SlidableGestureDetector(
+      onDragStart: widget.onDragStart,
+      endGestureHeight: widget.endGestureHeight,
+      endGestureWidth: widget.endGestureWidth,
       enabled: widget.enabled,
       controller: controller,
       direction: widget.direction,
       dragStartBehavior: widget.dragStartBehavior,
+      closeOnScroll: widget.closeOnScroll,
       child: SlidableNotificationSender(
         tag: widget.groupTag,
         controller: controller,

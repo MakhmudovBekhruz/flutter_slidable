@@ -3,8 +3,16 @@
 
 [<img src="https://raw.githubusercontent.com/letsar/flutter_slidable/assets/flutter_favorite.png" width="100" />][flutter_favorite] **Slidable is a [Flutter Favorite][flutter_favorite] package!**
 
+This is a fork of [flutter_slidable](https://pub.dev/packages/flutter_slidable) package.
 
-# flutter_slidable
+We create this fork to support open an item from right edge to open item menu, slide the item to change the tabbar (like telegram message items). Currently, it is not possible to slide from the left to right. We will also support this feature as soon as we possible.
+
+All donations info are available for the owners of the original package, we do not change anything. Special thanks to [letsar](https://github.com/letsar)
+
+
+#### From VietNam ![Vietnam](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/vn.png "Vietnam") (with Paracel & Spratly Islands) contributor
+Contact me for any [license problem](mailto:dangtrongthanh1998@gmail.com) or [instantly support](mailto:dangtrongthanh1998@gmail.com)
+# another_flutter_slidable
 
 A Flutter implementation of slidable list item with directional slide actions that can be dismissed.
 
@@ -21,10 +29,7 @@ Our top sponsors are shown below! [[Become a Sponsor](https://github.com/sponsor
         </tr>
     </tbody>
 </table>
-
-## Migration from 0.6.0
-
-You can read this small guide to migrate from the 0.6 to the 1.0 version: https://github.com/letsar/flutter_slidable/wiki/Migration-from-version-0.6.0-to-version-1.0.0
+ 
 
 ## Features
 

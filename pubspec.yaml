@@ -1,7 +1,7 @@
-name: flutter_slidable
-description: A Flutter implementation of slidable list item with directional slide actions that can be dismissed.
-version: 3.1.0
-homepage: https://github.com/letsar/flutter_slidable
+name: another_flutter_slidable
+description: A Flutter implementation of slidable list item with directional slide actions that can be work with TabBar.
+version: 1.0.2
+homepage: https://github.com/thanhdang198/flutter_slidable
 
 environment:
   sdk: '>=2.17.0 <4.0.0'

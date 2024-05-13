@@ -1,5 +1,5 @@
+import 'package:another_flutter_slidable/flutter_slidable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 library flutter_slidable;
 
 export 'src/action_pane_motions.dart';

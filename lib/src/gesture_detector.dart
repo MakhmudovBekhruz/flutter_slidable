@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 
@@ -7,19 +8,28 @@ import 'controller.dart';
 // ignore_for_file: public_member_api_docs
 
 class SlidableGestureDetector extends StatefulWidget {
-  const SlidableGestureDetector({
-    Key? key,
-    this.enabled = true,
-    required this.controller,
-    required this.direction,
-    required this.child,
-    this.dragStartBehavior = DragStartBehavior.start,
-  }) : super(key: key);
-
+  const SlidableGestureDetector(
+      {Key? key,
+      this.enabled = true,
+      this.closeOnScroll = true,
+      required this.controller,
+      required this.direction,
+      required this.child,
+      this.dragStartBehavior = DragStartBehavior.start,
+      this.endGestureWidth = 10,
+      this.endGestureHeight = 50,
+      this.endPadding = 150,
+      this.onDragStart})
+      : super(key: key);
+  final bool closeOnScroll;
   final SlidableController controller;
   final Widget child;
   final Axis direction;
   final bool enabled;
+  final VoidCallback? onDragStart;
+  final double endGestureWidth;
+  final double endGestureHeight;
+  final double? endPadding;
 
   /// Determines the way that drag start behavior is handled.
   ///
@@ -45,27 +55,49 @@ class SlidableGestureDetector extends StatefulWidget {
 
 class _SlidableGestureDetectorState extends State<SlidableGestureDetector> {
   double dragExtent = 0;
-  late Offset startPosition;
-  late Offset lastPosition;
+  Offset? startPosition;
+  Offset? lastPosition;
 
   bool get directionIsXAxis {
     return widget.direction == Axis.horizontal;
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final canDragHorizontally = directionIsXAxis && widget.enabled;
     final canDragVertically = !directionIsXAxis && widget.enabled;
-    return GestureDetector(
-      onHorizontalDragStart: canDragHorizontally ? handleDragStart : null,
-      onHorizontalDragUpdate: canDragHorizontally ? handleDragUpdate : null,
-      onHorizontalDragEnd: canDragHorizontally ? handleDragEnd : null,
-      onVerticalDragStart: canDragVertically ? handleDragStart : null,
-      onVerticalDragUpdate: canDragVertically ? handleDragUpdate : null,
-      onVerticalDragEnd: canDragVertically ? handleDragEnd : null,
-      behavior: HitTestBehavior.opaque,
-      dragStartBehavior: widget.dragStartBehavior,
-      child: widget.child,
+
+    return Stack(
+      children: [
+        widget.child,
+        Positioned(
+          right:
+              widget.controller.direction.value == -1 ? widget.endPadding : 0,
+          top: 0,
+          child: GestureDetector(
+            onHorizontalDragStart: canDragHorizontally ? handleDragStart : null,
+            onHorizontalDragUpdate:
+                canDragHorizontally ? handleDragUpdate : null,
+            onHorizontalDragEnd: canDragHorizontally ? handleDragEnd : null,
+            onVerticalDragStart: canDragVertically ? handleDragStart : null,
+            onVerticalDragUpdate: canDragVertically ? handleDragUpdate : null,
+            onVerticalDragEnd: canDragVertically ? handleDragEnd : null,
+            behavior: HitTestBehavior.opaque,
+            dragStartBehavior: widget.dragStartBehavior,
+            child: SizedBox(
+              width: widget.controller.direction.value == -1
+                  ? MediaQuery.sizeOf(context).width - 150
+                  : widget.endGestureWidth,
+              height: widget.endGestureHeight,
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -75,6 +107,9 @@ class _SlidableGestureDetectorState extends State<SlidableGestureDetector> {
   }
 
   void handleDragStart(DragStartDetails details) {
+    if (widget.onDragStart != null) {
+      widget.onDragStart!();
+    }
     startPosition = details.localPosition;
     lastPosition = startPosition;
     dragExtent = dragExtent.sign *
@@ -84,6 +119,7 @@ class _SlidableGestureDetectorState extends State<SlidableGestureDetector> {
   }
 
   void handleDragUpdate(DragUpdateDetails details) {
+    // print(details.primaryDelta);
     final delta = details.primaryDelta!;
     dragExtent += delta;
     lastPosition = details.localPosition;
@@ -91,14 +127,25 @@ class _SlidableGestureDetectorState extends State<SlidableGestureDetector> {
   }
 
   void handleDragEnd(DragEndDetails details) {
-    final delta = lastPosition - startPosition;
-    final primaryDelta = directionIsXAxis ? delta.dx : delta.dy;
-    final gestureDirection =
-        primaryDelta >= 0 ? GestureDirection.opening : GestureDirection.closing;
+    // print('handleDragEnd');
 
     widget.controller.dispatchEndGesture(
       details.primaryVelocity,
-      gestureDirection,
+      getDirection(),
     );
+  }
+
+  GestureDirection getDirection() {
+    if (lastPosition == null || startPosition == null) {
+      return GestureDirection.opening;
+    }
+    final delta = lastPosition! - startPosition!;
+
+    final primaryDelta = directionIsXAxis ? delta.dx : delta.dy;
+    // print(primaryDelta);
+    final gestureDirection =
+        primaryDelta >= 0 ? GestureDirection.opening : GestureDirection.closing;
+
+    return gestureDirection;
   }
 }
