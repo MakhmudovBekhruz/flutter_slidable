@@ -60,8 +60,12 @@ import 'package:another_flutter_slidable/flutter_slidable.dart';
 ```
 
 ## Getting started
-<video width="320" height="720" controls>
+<!-- <video width="320" height="720" controls>
   <source src="https://github.com/thanhdang198/flutter_slidable/raw/master/videos/IMG_0897.MP4" type="video/mp4">
+</video> -->
+
+<video width="320" height="720" controls>
+  <source src="https://raw.githubusercontent.com/thanhdang198/flutter_slidable/master/videos/IMG_0897.MP4" type="video/mp4">
 </video>
 
 Example:
