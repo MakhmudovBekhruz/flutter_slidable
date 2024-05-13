@@ -50,18 +50,18 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 
 ```yaml
 dependencies:
-  flutter_slidable: <latest_version>
+  another_flutter_slidable: <latest_version>
 ```
 
 In your library add the following import:
 
 ```dart
-import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:another_flutter_slidable/flutter_slidable.dart';
 ```
 
 ## Getting started
-<video width="320" height="240" controls>
-  <source src="/videos/IMG_0897.MP4" type="video/mp4">
+<video width="320" height="720" controls>
+  <source src="https://github.com/thanhdang198/flutter_slidable/raw/master/videos/IMG_0897.MP4" type="video/mp4">
 </video>
 
 Example:
