@@ -5,7 +5,7 @@
 
 This is a fork of [flutter_slidable](https://pub.dev/packages/flutter_slidable) package.
 
-We create this fork to support open an item from right edge to open item menu, slide the item to change the tabbar (like telegram message items). Currently, it is not possible to slide from the left to right. We will also support this feature as soon as we possible.
+We create this fork to support open an item from right edge to open item menu, slide the item to change the tabbar (like telegram message items).
 
 All donations info are available for the owners of the original package, we do not change anything. Special thanks to [letsar](https://github.com/letsar)
 
@@ -64,12 +64,13 @@ import 'package:another_flutter_slidable/flutter_slidable.dart';
   <source src="https://github.com/thanhdang198/flutter_slidable/raw/master/videos/IMG_0897.MP4" type="video/mp4">
 </video> -->
 
-<video width="320" height="720" controls>
-  <source src="https://raw.githubusercontent.com/thanhdang198/flutter_slidable/master/videos/IMG_0897.MP4" type="video/mp4">
-</video>
 
 Example:
 
+
+![Demo](./videos/slider.gif)  
+
+[Demo code here](./example/lib/main.dart) 
 ```dart
 Slidable(
   // Specify a key if the Slidable is dismissible.

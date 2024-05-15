@@ -19,6 +19,7 @@ class SlidableGestureDetector extends StatefulWidget {
       this.endGestureWidth = 10,
       this.endGestureHeight = 50,
       this.endPadding = 150,
+      this.startPadding = 150,
       this.onDragStart})
       : super(key: key);
   final bool closeOnScroll;
@@ -30,6 +31,7 @@ class SlidableGestureDetector extends StatefulWidget {
   final double endGestureWidth;
   final double endGestureHeight;
   final double? endPadding;
+  final double? startPadding;
 
   /// Determines the way that drag start behavior is handled.
   ///
@@ -71,7 +73,6 @@ class _SlidableGestureDetectorState extends State<SlidableGestureDetector> {
   Widget build(BuildContext context) {
     final canDragHorizontally = directionIsXAxis && widget.enabled;
     final canDragVertically = !directionIsXAxis && widget.enabled;
-
     return Stack(
       children: [
         widget.child,
@@ -91,6 +92,28 @@ class _SlidableGestureDetectorState extends State<SlidableGestureDetector> {
             dragStartBehavior: widget.dragStartBehavior,
             child: SizedBox(
               width: widget.controller.direction.value == -1
+                  ? MediaQuery.sizeOf(context).width - 150
+                  : widget.endGestureWidth,
+              height: widget.endGestureHeight,
+            ),
+          ),
+        ),
+        Positioned(
+          left:
+              widget.controller.direction.value == 1 ? widget.startPadding : 0,
+          top: 0,
+          child: GestureDetector(
+            onHorizontalDragStart: canDragHorizontally ? handleDragStart : null,
+            onHorizontalDragUpdate:
+                canDragHorizontally ? handleDragUpdate : null,
+            onHorizontalDragEnd: canDragHorizontally ? handleDragEnd : null,
+            onVerticalDragStart: canDragVertically ? handleDragStart : null,
+            onVerticalDragUpdate: canDragVertically ? handleDragUpdate : null,
+            onVerticalDragEnd: canDragVertically ? handleDragEnd : null,
+            behavior: HitTestBehavior.opaque,
+            dragStartBehavior: widget.dragStartBehavior,
+            child: SizedBox(
+              width: widget.controller.direction.value == 1
                   ? MediaQuery.sizeOf(context).width - 150
                   : widget.endGestureWidth,
               height: widget.endGestureHeight,

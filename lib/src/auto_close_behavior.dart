@@ -353,7 +353,6 @@ class _SlidableAutoCloseBarrierNotificationSenderState
   SlidableGroupNotificationDispatcher? dispatcher;
 
   void _handleStatusChanged(AnimationStatus status) {
-
     final willBarrierBeEnabled = status != AnimationStatus.dismissed;
     final barrierEnabled = dispatcher != null;
     if (willBarrierBeEnabled != barrierEnabled) {

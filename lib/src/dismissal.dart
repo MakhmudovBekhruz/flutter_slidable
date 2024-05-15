@@ -63,9 +63,11 @@ class _SlidableDismissalState extends State<SlidableDismissal>
       animationController.forward(from: 0).then((_) {
         resizeRequest.onDismissed.call();
       });
-      setState(() {
-        resized = true;
-      });
+      if (mounted) {
+        setState(() {
+          resized = true;
+        });
+      }
     }
   }
 

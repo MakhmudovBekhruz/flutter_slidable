@@ -1,5 +1,9 @@
+## 1.2.0
+* Provide slider from the edge left side
+
 ## 1.1.0
-Modified to work inside the tabbar view
+* Modified to work inside the tabbar view
+
 ## 3.0.1
 
 ## Changed

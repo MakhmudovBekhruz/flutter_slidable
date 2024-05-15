@@ -20,35 +20,45 @@ class Slidable extends StatefulWidget {
   ///
   /// The [enabled], [closeOnScroll], [direction], [dragStartBehavior],
   /// [useTextDirection] and [child] arguments must not be null.
-  const Slidable({
-    Key? key,
-    this.controller,
-    this.groupTag,
-    this.enabled = true,
-    this.closeOnScroll = true,
-    this.startActionPane,
-    this.endActionPane,
-    this.direction = Axis.horizontal,
-    this.dragStartBehavior = DragStartBehavior.down,
-    this.useTextDirection = true,
-    required this.child,
-    this.endGestureWidth = 10,
-    this.endGestureHeight = 50,
-    this.onDragStart,
-    this.endPadding
-  }) : super(key: key);
+  const Slidable(
+      {Key? key,
+      this.controller,
+      this.groupTag,
+      this.enabled = true,
+      this.closeOnScroll = true,
+      this.startActionPane,
+      this.endActionPane,
+      this.direction = Axis.horizontal,
+      this.dragStartBehavior = DragStartBehavior.down,
+      this.useTextDirection = true,
+      required this.child,
+      this.endGestureWidth = 25,
+      this.startGestureWidth = 25,
+      this.gestureHeight = 50,
+      this.onDragStart,
+      this.startPadding,
+      this.endPadding})
+      : super(key: key);
 
-  /// The width of the area that receives the open menu button
+  /// The width of menu when open, the slider will ignore slide from here for
+  /// clickable button. If not, it will receive 150px from edge left or right.
   final double? endPadding;
+
+  /// The width of menu when open, the slider will ignore slide from here for
+  /// clickable button. If not, it will receive 150px from edge left or right.
+  final double? startPadding;
 
   /// Callback when user start open an item
   final VoidCallback? onDragStart;
 
-  /// The width of the area that receives the open menu button
+  /// The width of the area that receives the open menu button from edge right
   final double endGestureWidth;
 
+  /// The width of the area that receives the open menu button from edge left
+  final double startGestureWidth;
+
   /// The height of the area that receive open menu buttons
-  final double endGestureHeight;
+  final double gestureHeight;
 
   /// The Slidable widget controller.
   final SlidableController? controller;
@@ -212,14 +222,18 @@ class _SlidableState extends State<Slidable>
   }
 
   void handleActionPanelTypeChanged() {
-    setState(() {
-      updateMoveAnimation();
-    });
+    if (mounted) {
+      setState(() {
+        updateMoveAnimation();
+      });
+    }
   }
 
   void handleDismissing() {
     if (controller.resizeRequest.value != null) {
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     }
   }
 
@@ -290,7 +304,7 @@ class _SlidableState extends State<Slidable>
 
     return SlidableGestureDetector(
       onDragStart: widget.onDragStart,
-      endGestureHeight: widget.endGestureHeight,
+      endGestureHeight: widget.gestureHeight,
       endGestureWidth: widget.endGestureWidth,
       enabled: widget.enabled,
       controller: controller,
