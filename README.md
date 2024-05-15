@@ -1,7 +1,7 @@
 <!-- [![Build][github_action_badge]][github_action] -->
 [![Pub][pub_badge]][pub] [![BuyMeACoffee][buy_me_a_coffee_badge]][buy_me_a_coffee]
 
-[<img src="https://raw.githubusercontent.com/letsar/flutter_slidable/assets/flutter_favorite.png" width="100" />][flutter_favorite] **Slidable is a [Flutter Favorite][flutter_favorite] package!**
+<!-- [<img src="https://raw.githubusercontent.com/letsar/flutter_slidable/assets/flutter_favorite.png" width="100" />][flutter_favorite] **Slidable is a [Flutter Favorite][flutter_favorite] package!** -->
 
 This is a fork of [flutter_slidable](https://pub.dev/packages/flutter_slidable) package.
 
@@ -16,7 +16,7 @@ Contact me for any [license problem](mailto:dangtrongthanh1998@gmail.com) or [in
 
 A Flutter implementation of slidable list item with directional slide actions that can be dismissed.
 
-## Sponsors
+<!-- ## Sponsors
 
 Our top sponsors are shown below! [[Become a Sponsor](https://github.com/sponsors/letsar)]
 
@@ -28,7 +28,7 @@ Our top sponsors are shown below! [[Become a Sponsor](https://github.com/sponsor
             </td>            
         </tr>
     </tbody>
-</table>
+</table> -->
  
 
 ## Features
@@ -68,7 +68,7 @@ import 'package:another_flutter_slidable/flutter_slidable.dart';
 Example:
 
 
-![Demo](./videos/slider.gif)  
+![Demo][new_slider]
 
 [Demo code here](./example/lib/main.dart) 
 ```dart
@@ -221,3 +221,5 @@ If you fixed a bug or implemented a feature, please send a [pull request][pr].
 [stretch_motion]: https://raw.githubusercontent.com/letsar/flutter_slidable/assets/stretch_motion.gif
 [issue]: https://github.com/letsar/flutter_slidable/issues
 [pr]: https://github.com/letsar/flutter_slidable/pulls
+
+[new_slider]:https://github.com/thanhdang198/flutter_slidable/blob/master/videos/slider.gif?raw=true

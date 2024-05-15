@@ -1,3 +1,5 @@
+## 1.2.1
+* Update `README.md`
 ## 1.2.0
 * Provide slider from the edge left side
 
